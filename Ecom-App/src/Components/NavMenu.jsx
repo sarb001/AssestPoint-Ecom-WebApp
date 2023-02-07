@@ -3,6 +3,7 @@ import Searchbar from './Searchbar';
 import  {Link } from 'react-router-dom'
 import '../Styles/NavMenu.css';
 
+
 const NavMenu = () => {
   return (
     <div> 

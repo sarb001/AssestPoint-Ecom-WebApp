@@ -1,8 +1,9 @@
-import { Button, color } from '@chakra-ui/react';
+
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import { useProductContext } from './ContextApi/ProductContext'
-import Product from './Product';
+import { useProductContext } from './ContextApi/ProductContext';
+import { Button } from '@chakra-ui/react';
+// import  { MdSettings } from 'react-icons/md';
 
 const AllProducts = () => {
 
@@ -22,16 +23,23 @@ const AllProducts = () => {
                                  <img src = {item.image} style = {{width:'100%',height:'50vh'}} /> 
                               </div>
                    </NavLink>
-                              <div className="prod-part1" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}> 
+                              <div className="prod-part1" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',paddingTop:'5%'}}> 
                                   <div className="item-name" style = {{fontWeight:'700'}}> {item.name} </div>
-                                  <div className="item-wishlist"> Like  </div>
+                                  <div className="item-wishlist"> like 
+                                   </div>
                               </div>
-                              <div className="prod-part2"  style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+                              <div className="prod-part2"  style = {{display:'grid',gridTemplateColumns:'1fr 1fr',paddingTop:'4%'}}>
                                   <div className="item-company" style = {{fontWeight:'500'}}> By {item.company} </div>
                                   <div className="item-wishlist" style = {{fontWeight:'800'}}> Rs.{item.price} </div>
                               </div>
                             <div className="item-btn" style = {{paddingTop:'8%',paddingBottom:'8%'}}> 
-                            <Button style = {{backgroundColor:'blueviolet',color:'white'}}> Add to Cart   </Button> 
+                              
+                              <Button colorScheme = 'purple'>  Add to Cart    </Button>
+               
+                                 {/* <Icon as = {MdSettings} /> */}
+                              <span> 
+                                 {/* {MdSettings} */}
+                              </span>
                             </div>
                       </div>
                   </>
