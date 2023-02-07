@@ -1,0 +1,13 @@
+.header-link{
+    text-decoration: none;
+}
+.header-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    background-color: aliceblue;
+    padding: 2%;
+    cursor: pointer;
+}
+.pad{
+    padding:'8% 8%';
+}
