@@ -4,7 +4,9 @@ import  {Link } from 'react-router-dom'
 import '../Styles/NavMenu.css';
 
 import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavMenu = () => {
   return (
@@ -12,9 +14,8 @@ const NavMenu = () => {
         <header>
              <div className="header-container">
                 <div className="header-logo">
-                  <Link to = "/" className='header-link'>
-                   <AddHomeWorkIcon />
-                    AssestINT 
+                   <Link to = "/" className='header-link'>
+                       <span> AssestPoint  </span>  
                   </Link>
                 </div>
                 <div className="header-searchbar"> 
@@ -27,17 +28,17 @@ const NavMenu = () => {
                  </div>
                 <div className="header-userbar">
                   <Link to = "/login" className='header-link'> 
-                  <span>  User  </span>
+                  <span>  <AccountCircleIcon  sx = {{ color : 'purple' }} />  </span>
                    </Link> 
                   </div>
                 <div className="header-wishlist"> 
                   <Link to = "/" className='header-link'> 
-                    <span>  Wish  </span> 
+                    <span>  <FavoriteBorderIcon   sx = {{ color : 'blue' }} />  </span> 
                   </Link> 
                  </div>
                 <div className="header-cart"> 
                   <Link to = "/" className='header-link'> 
-                    <span>  cart   </span> 
+                    <span>  <ShoppingCartIcon   sx = {{ color : 'blue' }} />   </span> 
                   </Link> 
                  </div>
              </div>
