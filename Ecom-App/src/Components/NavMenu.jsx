@@ -3,6 +3,8 @@ import Searchbar from './Searchbar';
 import  {Link } from 'react-router-dom'
 import '../Styles/NavMenu.css';
 
+import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
+
 
 const NavMenu = () => {
   return (
@@ -11,7 +13,8 @@ const NavMenu = () => {
              <div className="header-container">
                 <div className="header-logo">
                   <Link to = "/" className='header-link'>
-                   <span> AssetPoint </span>
+                   <AddHomeWorkIcon />
+                    AssestINT 
                   </Link>
                 </div>
                 <div className="header-searchbar"> 

@@ -2,7 +2,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useProductContext } from './ContextApi/ProductContext';
-import { Button } from '@chakra-ui/react';
+// import { Button } from '@chakra-ui/react';
 // import  { MdSettings } from 'react-icons/md';
 
 const AllProducts = () => {
@@ -34,7 +34,7 @@ const AllProducts = () => {
                               </div>
                             <div className="item-btn" style = {{paddingTop:'8%',paddingBottom:'8%'}}> 
                               
-                              <Button colorScheme = 'purple'>  Add to Cart    </Button>
+                              {/* <Button colorScheme = 'purple'>  Add to Cart    </Button> */}
                
                                  {/* <Icon as = {MdSettings} /> */}
                               <span> 
