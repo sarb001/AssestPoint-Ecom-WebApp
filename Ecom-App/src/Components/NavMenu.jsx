@@ -3,7 +3,6 @@ import Searchbar from './Searchbar';
 import  {Link } from 'react-router-dom'
 import '../Styles/NavMenu.css';
 
-import AddHomeWorkIcon from '@mui/icons-material/AddHomeWork';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';

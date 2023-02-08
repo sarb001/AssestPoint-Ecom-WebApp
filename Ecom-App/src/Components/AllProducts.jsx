@@ -2,8 +2,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useProductContext } from './ContextApi/ProductContext';
-// import { Button } from '@chakra-ui/react';
-// import  { MdSettings } from 'react-icons/md';
+
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Button } from '@mui/material';
+
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const AllProducts = () => {
 
@@ -25,7 +28,8 @@ const AllProducts = () => {
                    </NavLink>
                               <div className="prod-part1" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',paddingTop:'5%'}}> 
                                   <div className="item-name" style = {{fontWeight:'700'}}> {item.name} </div>
-                                  <div className="item-wishlist"> like 
+                                  <div className="item-wishlist">
+                    <span>          <FavoriteBorderIcon    sx = {{ color : 'blue' }} />  </span> 
                                    </div>
                               </div>
                               <div className="prod-part2"  style = {{display:'grid',gridTemplateColumns:'1fr 1fr',paddingTop:'4%'}}>
@@ -34,11 +38,9 @@ const AllProducts = () => {
                               </div>
                             <div className="item-btn" style = {{paddingTop:'8%',paddingBottom:'8%'}}> 
                               
-                              {/* <Button colorScheme = 'purple'>  Add to Cart    </Button> */}
-               
-                                 {/* <Icon as = {MdSettings} /> */}
+                              <Button variant='contained'> <ShoppingCartIcon   sx = {{ color : 'white' }} />  Add to Cart  </Button>
                               <span> 
-                                 {/* {MdSettings} */}
+                              
                               </span>
                             </div>
                       </div>
