@@ -2,17 +2,15 @@ import React, { useState } from 'react'
 import NavMenu from './NavMenu';
 import { Link , useNavigate } from 'react-router-dom';
 import '../Styles/NavMenu.css';
-// import axios from 'axios';
-
 import {  toast } from 'react-toastify';
 import { Button } from '@mui/material';
+import axios from 'axios';
 
 
 const Login = () => {
 
-  const [email ,setemail] = useState();
-  const [password ,setpassword] = useState();
-
+  const [email ,setemail] = useState("");
+  const [password ,setpassword] = useState("");
 
    const navigate = useNavigate();
 
@@ -36,11 +34,11 @@ const Login = () => {
           {email,password},config);
 
           toast.success('Login Successful');
-          navigate('/products')
+          navigate('/products');
 
      }catch(error)
         {
-          toast.error(' Wrong Credentials ')
+          toast.error(' Wrong Credentials '); 
         }
   }
 
@@ -48,9 +46,10 @@ const Login = () => {
   return (
     <div> 
       <NavMenu />
-               <div className     = "loginouter-container" style = {{margin:'8% 45%',backgroundColor:'burlywood',width:'25%'}} >
+               <div className   = "login-outer-container" style = {{margin:'8% 45%',backgroundColor:'burlywood',width:'25%'}} >
                   <div className = "login-container"  style  = {{width:'100%',padding:'8%'}}>
                           <div className="login-text"> Login  </div>
+                            
                             <form onSubmit = {handlelogin}> 
 
                                   <div className = "email-container" style = {{padding:'2% 8%'}}>
@@ -69,12 +68,13 @@ const Login = () => {
 
                                
                                   <div className = "login-container" style = {{padding:'4% 8%'}}>  
-                                    <Button variant = 'contained'
-                                    type = "submit"> Login  </Button>
+                                    {/* <Button variant = 'contained' > Login  </Button> */}
+                                    <button>  Login  </button>
                                   </div>
 
                                   <div className="test-container" style = {{padding:'2% 8%'}}>
-                                      <Button  variant='contained'  onClick = {() => {
+                                      <Button  variant = 'contained'  onClick = {() => 
+                                      {
                                           setemail("testinguser@gmail.com")
                                           setpassword("testinguser")
                                       }}> Fill test credentials </Button>  
@@ -82,7 +82,7 @@ const Login = () => {
                                   
                                   <div className="newacc-container" style = {{padding:'2% 8%'}}>
                                       <Link to = "/signup"> 
-                                      <Button variant = 'contained'> Create New Account   </Button>  
+                                             <span>  Create New Account   </span>
                                       </Link>
                                   </div>
                                   
