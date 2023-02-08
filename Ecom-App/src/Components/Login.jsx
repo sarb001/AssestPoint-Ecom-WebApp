@@ -32,9 +32,14 @@ const Login = () => {
 
           const  { data }  = await axios.post("/api/user/login" ,  
           {email,password},config);
-
           toast.success('Login Successful');
-          navigate('/products');
+
+         const loggeduser =  JSON.parse(localStorage.getItem('userinfo'));
+         if(email === loggeduser.email)
+          {
+            localStorage.setItem('LoggedIn',true);
+            navigate('/');
+          }
 
      }catch(error)
         {
@@ -46,7 +51,7 @@ const Login = () => {
   return (
     <div> 
       <NavMenu />
-               <div className   = "login-outer-container" style = {{margin:'8% 45%',backgroundColor:'burlywood',width:'25%'}} >
+               <div className    = "login-outer-container" style = {{margin:'8% 45%',backgroundColor:'burlywood',width:'25%'}} >
                   <div className = "login-container"  style  = {{width:'100%',padding:'8%'}}>
                           <div className="login-text"> Login  </div>
                             
@@ -67,8 +72,7 @@ const Login = () => {
                                   </div>
 
                                
-                                  <div className = "login-container" style = {{padding:'4% 8%'}}>  
-                                    {/* <Button variant = 'contained' > Login  </Button> */}
+                                  <div className = "login-container" style = {{padding:'4% 8%'}}> 
                                     <button>  Login  </button>
                                   </div>
 

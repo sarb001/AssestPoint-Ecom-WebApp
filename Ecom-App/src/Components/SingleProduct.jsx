@@ -18,6 +18,8 @@ const SingleProduct = () => {
   const {id} = useParams();
   const { id : alias , name , company , price ,description ,category ,stock ,reviews ,stars ,image } = singleprod;
 
+   console.log('Single Prod iss--',singleprod);
+
   useEffect(() => {
       getsingleproduct(`${API}?id=${id}`);  
   },[])
@@ -38,7 +40,7 @@ const SingleProduct = () => {
                   <div className = "singleprdo-text" style = {{textAlign:'center',fontSize:'25px',paddingBottom:'4%'}}>   SingleProduct </div>  
                 <div className   = "singleprod-container" style = {{width:'90%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>
                     <div className = "image-container">  
-                        <div className = "singleprod-image">   <img src = {image[0].url} style = {{width:'80%'}} /> </div>
+                        <div className = "singleprod-image">   <img src = {image && image[0].url} style = {{width:'80%'}} /> </div>
                     </div>
                     <div className="content-container"> 
                         <div className = "singleprod-name">     <span id = "text-style" > Name is  -  </span>  {name} </div>
@@ -50,11 +52,10 @@ const SingleProduct = () => {
                      </div>
                      <div className="buttons" style= {{display:'grid',gridTemplateColumns:'1fr 1fr'}}> 
                      <span>
-                        <Button variant = 'contained'>  
-                        <ShoppingCartIcon  sx = {{ color : 'white' }} />  Add to Cart   </Button>
+                          <button>  Add to Cart </button>
                      </span>
                      <span>
-                         <Button variant='outlined'>    <FavoriteBorderIcon  /> Add to Wishlist  </Button>
+                         <button>  Add to Wishlist  </button>
                      </span>
                      </div>
                 </div> 

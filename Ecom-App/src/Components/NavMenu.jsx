@@ -8,6 +8,9 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavMenu = () => {
+
+   const { firstname } = JSON.parse(localStorage.getItem('userinfo'))
+
   return (
     <div> 
         <header>
@@ -22,7 +25,7 @@ const NavMenu = () => {
                 </div>
                 <div className="header-shopbar"> 
                   <Link to = "/products" className='header-link'> 
-                   <span>  Shop </span>
+                    <h2>  Shop (Hello {firstname})  </h2>
                    </Link> 
                  </div>
                 <div className="header-userbar">
@@ -31,12 +34,12 @@ const NavMenu = () => {
                    </Link> 
                   </div>
                 <div className="header-wishlist"> 
-                  <Link to = "/" className='header-link'> 
+                  <Link to = "/wishlist" className='header-link'> 
                     <span>  <FavoriteBorderIcon   sx = {{ color : 'blue' }} />  </span> 
                   </Link> 
                  </div>
                 <div className="header-cart"> 
-                  <Link to = "/" className='header-link'> 
+                  <Link to = "/cart" className='header-link'> 
                     <span>  <ShoppingCartIcon   sx = {{ color : 'blue' }} />   </span> 
                   </Link> 
                  </div>

@@ -41,7 +41,9 @@ const Signup = () => {
            const { data } = await axios.post('/api/user' , 
               {firstname,lastname,email,password} ,config );
               toast.success(' User  is Registered Successfully ')
-              navigate('/cart');
+
+              localStorage.setItem('userinfo' ,JSON.stringify(data));
+              navigate('/login');
 
         }catch(error)
         {
@@ -103,7 +105,6 @@ const Signup = () => {
 
                             <div className = "create-account"  style = {{padding:'3% 8%'}}>
                                <button>  Create New Account  </button>
-                                {/* <Button  variant = 'contained'>   Create New Account  </Button> */}
                             </div>
                          
                             <div className = "already-account"  style = {{padding:'3% 8%'}}>

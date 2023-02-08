@@ -25,11 +25,12 @@ const Home = () => {
 
                  <div className="home-container" style = {{padding:'4%'}}>
                       <div className="featured-text" style = {{textAlign:'center'}}>
-                          <span style = {{fontSize:'25px'}}> Featured Products Here    </span>
+                          <span style = {{ fontSize:'25px'}}> Featured Products Here    </span>
                       </div>
 
                        <div className="featured-products" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',columnGap:'40px'}}>
-                        {featuredProducts.map((item) => (
+                        {featuredProducts.map((item) => 
+                          (
                           <Product  key = {item.id} {...item}  />
                           ))
                         }
