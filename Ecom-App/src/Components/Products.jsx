@@ -6,7 +6,6 @@ import NavMenu from './NavMenu'
 const Products = () => {
   return (
     <div> 
-      <NavMenu />
        <div className="products" style = {{display:'grid',gridTemplateColumns:'300px  1fr',padding:'3%',columnGap:'65px'}}>
            <div className="first-side-product" style = {{backgroundColor:'burlywood'}}>
               <AllFilters />

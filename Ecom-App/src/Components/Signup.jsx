@@ -43,7 +43,7 @@ const Signup = () => {
               toast.success(' User  is Registered Successfully ')
 
               localStorage.setItem('userinfo' ,JSON.stringify(data));
-              navigate('/login');
+              navigate('/');
 
         }catch(error)
         {
@@ -53,7 +53,6 @@ const Signup = () => {
 
   return (
     <div> 
-      <NavMenu />
              <div className      =  "signupouter-container" style = {{margin:'5% 40%',width:'25%',backgroundColor:'burlywood'}}>
                   <div className =  "signup-container" style = {{padding:'5% 8%'}}>
                       <div className = "signup-text" style = {{fontSize:'28px'}}>  

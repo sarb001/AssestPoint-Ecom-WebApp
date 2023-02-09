@@ -35,7 +35,6 @@ const SingleProduct = () => {
 
   return (
     <div> 
-        <NavMenu />
             <div className = "singleprod-outercontainer" style = {{padding:'4%'}}>
                   <div className = "singleprdo-text" style = {{textAlign:'center',fontSize:'25px',paddingBottom:'4%'}}>   SingleProduct </div>  
                 <div className   = "singleprod-container" style = {{width:'90%',display:'grid',gridTemplateColumns:'1fr 1fr'}}>

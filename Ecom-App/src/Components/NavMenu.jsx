@@ -1,15 +1,22 @@
 import React from 'react'
 import Searchbar from './Searchbar';
-import  {Link } from 'react-router-dom'
+import  {Link, useNavigate } from 'react-router-dom'
 import '../Styles/NavMenu.css';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavMenu = () => {
 
-   const { firstname } = JSON.parse(localStorage.getItem('userinfo'))
+   const navigate =  useNavigate();
+   const userisloggedin = JSON.parse(localStorage.getItem('userinfo'))
+
+  //  const handlelogout = () => {
+  //       localStorage.removeItem('LoggedIn');
+  //       navigate('/login');
+  //  }
+
 
   return (
     <div> 
@@ -25,11 +32,11 @@ const NavMenu = () => {
                 </div>
                 <div className="header-shopbar"> 
                   <Link to = "/products" className='header-link'> 
-                    <h2>  Shop (Hello {firstname})  </h2>
+                    <h2>  Shop (Hello { userisloggedin && userisloggedin.firstname})  </h2>
                    </Link> 
                  </div>
                 <div className="header-userbar">
-                  <Link to = "/login" className='header-link'> 
+                  <Link to = "/useraccess" className='header-link'> 
                   <span>  <AccountCircleIcon  sx = {{ color : 'purple' }} />  </span>
                    </Link> 
                   </div>
@@ -39,10 +46,37 @@ const NavMenu = () => {
                   </Link> 
                  </div>
                 <div className="header-cart"> 
-                  <Link to = "/cart" className='header-link'> 
-                    <span>  <ShoppingCartIcon   sx = {{ color : 'blue' }} />   </span> 
-                  </Link> 
+
+                
+
+                  {/* {userisloggedin ?  (
+                   <>
+                     <Link to = "/cart" className='header-link'> 
+                        <span>  <ShoppingCartIcon   sx = {{ color : 'blue' }} /> 
+                          User is Logged in@@@@@
+                         </span> 
+                    </Link> 
+                   </>) 
+                  : (
+                  <>
+                        <h1> User is not Logged IN !!!!!!!!  </h1>
+                  </>)} */}
+                
                  </div>
+
+
+                  {/* {userisloggedin ? (
+                  <>
+                    <div className="logout-functionality">
+                         <button onClick = {handlelogout}> Logout  </button> 
+                    </div>
+                  </>) : (
+                  <>
+
+                  </>)} */}
+
+                
+
              </div>
         </header>
     </div>

@@ -21,7 +21,6 @@ const Home = () => {
 
   return (
     <div> 
-        <NavMenu />
 
                  <div className="home-container" style = {{padding:'4%'}}>
                       <div className="featured-text" style = {{textAlign:'center'}}>

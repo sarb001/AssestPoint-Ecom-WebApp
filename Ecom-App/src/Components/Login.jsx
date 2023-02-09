@@ -34,12 +34,25 @@ const Login = () => {
           {email,password},config);
           toast.success('Login Successful');
 
-         const loggeduser =  JSON.parse(localStorage.getItem('userinfo'));
-         if(email === loggeduser.email)
+
+          if(data)
           {
-            localStorage.setItem('LoggedIn',true);
-            navigate('/');
+              const storelocally =  localStorage.setItem('userinfo' ,JSON.stringify(data));
+          }else{
+            const loggeduser =  JSON.parse(localStorage.getItem('userinfo'));
           }
+
+
+
+         // showing  user is logged In
+         const showloggedinuser = localStorage.setItem('LoggedIn',true);
+            navigate('/');
+
+        //  if(email === loggeduser.email)
+        //   {
+        //     localStorage.setItem('LoggedIn',true);
+        //     navigate('/');
+        //   }
 
      }catch(error)
         {
@@ -50,7 +63,6 @@ const Login = () => {
 
   return (
     <div> 
-      <NavMenu />
                <div className    = "login-outer-container" style = {{margin:'8% 45%',backgroundColor:'burlywood',width:'25%'}} >
                   <div className = "login-container"  style  = {{width:'100%',padding:'8%'}}>
                           <div className="login-text"> Login  </div>
@@ -70,18 +82,17 @@ const Login = () => {
                                       onChange = {(e) => setpassword(e.target.value)}
                                       required/>
                                   </div>
-
                                
                                   <div className = "login-container" style = {{padding:'4% 8%'}}> 
                                     <button>  Login  </button>
                                   </div>
 
-                                  <div className="test-container" style = {{padding:'2% 8%'}}>
-                                      <Button  variant = 'contained'  onClick = {() => 
+                                  <div className = "test-container" style = {{padding:'2% 8%'}}>
+                                      <button  variant = 'contained'  onClick = {() => 
                                       {
                                           setemail("testinguser@gmail.com")
                                           setpassword("testinguser")
-                                      }}> Fill test credentials </Button>  
+                                      }}> Fill test credentials </button>  
                                   </div>
                                   
                                   <div className="newacc-container" style = {{padding:'2% 8%'}}>
