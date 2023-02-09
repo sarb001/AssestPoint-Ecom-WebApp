@@ -6,7 +6,6 @@ import '../Styles/NavMenu.css';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
-// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavMenu = () => {
 

@@ -27,7 +27,6 @@ const AppProvider = ({children}) => {
         {
             const res = await axios.get(url);
             const products = await res.data;
-            console.log('products are-' , products);  
             dispatch({ type : "SET_API_DATA" ,payload : products});
 
         }catch(error)
@@ -43,7 +42,7 @@ const AppProvider = ({children}) => {
         try {
             const res = await axios.get(url);
             const singleprod = await res.data;
-            console.log('products are-' , singleprod);  
+            console.log('Single Prod is --' , singleprod);  
             dispatch({ type : "SINGLE_PRODUCTS" ,payload : singleprod});
         }catch(error)
         {
