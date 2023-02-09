@@ -17,7 +17,7 @@ const UserAccess = () => {
 
   return (
     <div> 
-            <div className="useraccess-container" style = {{textAlign:'center'}}>
+            <div className = "useraccess-container" style = {{textAlign:'center'}}>
                     {userisloggedin ? (
                     <>
                          <h3> Lets' Logout  Now  </h3>

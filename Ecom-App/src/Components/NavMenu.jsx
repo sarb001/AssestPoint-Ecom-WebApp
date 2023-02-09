@@ -5,17 +5,13 @@ import '../Styles/NavMenu.css';
 
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ShoppingCart from '@mui/icons-material/ShoppingCart';
 // import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavMenu = () => {
 
    const navigate =  useNavigate();
    const userisloggedin = JSON.parse(localStorage.getItem('userinfo'))
-
-  //  const handlelogout = () => {
-  //       localStorage.removeItem('LoggedIn');
-  //       navigate('/login');
-  //  }
 
 
   return (
@@ -45,37 +41,12 @@ const NavMenu = () => {
                     <span>  <FavoriteBorderIcon   sx = {{ color : 'blue' }} />  </span> 
                   </Link> 
                  </div>
-                <div className="header-cart"> 
 
-                
-
-                  {/* {userisloggedin ?  (
-                   <>
-                     <Link to = "/cart" className='header-link'> 
-                        <span>  <ShoppingCartIcon   sx = {{ color : 'blue' }} /> 
-                          User is Logged in@@@@@
-                         </span> 
-                    </Link> 
-                   </>) 
-                  : (
-                  <>
-                        <h1> User is not Logged IN !!!!!!!!  </h1>
-                  </>)} */}
-                
-                 </div>
-
-
-                  {/* {userisloggedin ? (
-                  <>
-                    <div className="logout-functionality">
-                         <button onClick = {handlelogout}> Logout  </button> 
-                    </div>
-                  </>) : (
-                  <>
-
-                  </>)} */}
-
-                
+                <div className="header-cart">
+                 <Link to = "/cart" className='header-link'> 
+                      <span>  <ShoppingCart    sx = {{ color : 'blue' }}  />   </span>
+                 </Link>
+                </div> 
 
              </div>
         </header>
