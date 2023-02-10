@@ -23,17 +23,10 @@ const Cart = () => {
 
   return (
     <div> 
-            <div className="cart-container" style = {{textAlign:'center',paddingTop:'4%'}}>
+            <div className="cart-container" style = {{paddingTop:'4%'}}>
             { userisloggedin ? (
             <>  
 
-                   <div className="cart-side" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr 1fr',fontSize:'23px'}}>
-                      <div className="cart-title"> Item - </div>
-                      <div className="cart-item">  Price -</div>
-                      <div className="cart-quantity">  Quantity  </div>
-                      <div className="cart-subtotal">  SubTotal  </div>
-                      <div className="cart-remove">  Remove   </div>
-                   </div>
 
                    <div className="items-scroll">
                      {cart.map((curelem) => 
