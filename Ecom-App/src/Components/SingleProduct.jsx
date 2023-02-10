@@ -5,6 +5,7 @@ import '../Styles/SingleProduct.css';
 import { useCartContext } from './ContextApi/CartContext';
 
 import { Link } from 'react-router-dom';
+import AddtoCart from './AddtoCart';
 
 const API = 'https://api.pujakaitem.com/api/products';
 
@@ -29,10 +30,6 @@ const SingleProduct = () => {
   //   )
   // }
 
-    // const {  addtocart } = useCartContext();
-    // console.log('addto cart is ',addtocart);
-    const[amount,setamount] = useState(1);
-
 
   return (
     <div> 
@@ -52,17 +49,8 @@ const SingleProduct = () => {
                      </div>
                      <div className = "buttons" style= {{display:'grid',gridTemplateColumns:'1fr 1fr'}}> 
                      
-                     <span>
-                       {/* <Link to = '/cart'>
-                          <button onClick = {() => addtocart(id,amount,singleprod)}>  Add to Cart </button>
-                      </Link>  */}
- 
-                     </span>
-                     <span>
-                      <Link to = "/cart">
-                         <button>  Add to Cart  </button>
-                      </Link>
-                     </span>
+                       {stock > 0 &&  <AddtoCart  product = {singleprod} />  }
+
                      <span>
                          <button>  Add to Wishlist  </button>
                      </span>

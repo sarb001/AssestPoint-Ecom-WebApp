@@ -1,32 +1,31 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 import reducer from '../Reducer/CartReducer';
-import axios from 'axios';
 const CartContext = createContext();
-
-
 const CartProvider = ({children}) => {
 
-
-    const initialState = {
+    const initialstate = {
         cart:[],
+        total_items: "",
+        total_amount: "",
+        shipping_fee :50,
     }
 
-    const [state,dispatch] = useReducer(reducer,initialState);
+    const [state,dispatch] = useReducer(reducer,initialstate);
 
-    // const addtocart = (id,amount,singleprod) => {
-    //         dispatch({type:'ADD_TO_CART',payload :{id,amount,singleprod}})
-    // }
+    const addtocart = (id, amount ,stock ,image ,name ,price ) => {
+         dispatch({type:'ADD_TO_CART',payload : {id, amount ,stock ,image ,name ,price }});
+    } ;
 
     return(
-        <CartContext.Provider  value = {{...state }} >
+        <CartContext.Provider  value = {{...state , addtocart }} >
              {children}
         </CartContext.Provider>  
     )
 }
 
 const useCartContext = () => {
-    useContext(CartContext);
+    return useContext(CartContext);
 }
 
 export { CartProvider, useCartContext , CartContext}
