@@ -13,9 +13,7 @@ const AddtoCart = ({product}) => {
     console.log(' 2 Prod is - ',product);
 
     const [amount,setamount] = useState(1);
-  
     console.log(' Id for Selected Product (Add to cart)  -',id);
-
 
     let  { cart } = useCartContext();
     
@@ -35,7 +33,7 @@ const AddtoCart = ({product}) => {
       {currentitemincart ? (
       <>
           <NavLink to = "/cart"> 
-              Go to Cart 
+              <button> Go to Cart  </button>   
           </NavLink>
       </>) : (
       <>

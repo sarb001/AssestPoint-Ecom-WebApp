@@ -25,6 +25,19 @@ const CartReducer = (state,action) => {
             cart : [...state.cart , cartproduct],
         }
     }
+
+    if(action.type === 'SET_INCREASE'){
+        
+    }
+
+    if(action.type === 'SET_DECREASE'){
+        
+    }
+
+    if(action.type === 'REMOVE_FROM_CART'){
+        
+    }
+    
     return state;
 }
 export default CartReducer
