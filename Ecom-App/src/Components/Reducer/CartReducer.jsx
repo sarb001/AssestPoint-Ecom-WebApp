@@ -12,7 +12,7 @@ const CartReducer = (state,action) => {
 
         let cartproduct;
         cartproduct = {
-            id: id + amount,
+            id: id ,
             name : name,
             amount,
             image : image[0].url,

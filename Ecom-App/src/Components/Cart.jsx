@@ -17,9 +17,16 @@ const Cart = () => {
      const {  id :alias , name , company , price ,description ,category ,stock ,reviews ,stars ,image } = singleprod;
 
      let  { cart } = useCartContext();
-     const {amount } = cart;
+     // const { amount } = cart;
 
-     console.log('cart items are -',cart);
+    console.log(' cart is ',cart);
+    const cartamount = cart &&  cart[0].amount;
+    // console.log('cart Amount  -',cart[0].amount);
+
+      // console.log(' SingleProd id is  ',singleprod.id);
+      // console.log(' cart  id is  ',cart[0].id)
+
+    // let currentitemincart = isProductInCart(singleprod.id , cart.id )
 
 
   return (
@@ -45,7 +52,7 @@ const Cart = () => {
                                             </div>  
                                             
                                             <div className="price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
-                                            <span> Price({amount} items) </span>  
+                                            <span> Price( {cartamount} items)   </span>  
                                             <span> {price} </span>  
                                             </div>  
 
@@ -61,7 +68,7 @@ const Cart = () => {
 
                                             <div className="total-price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
                                               <span> Total Price - </span>
-                                              <span> Rs. -  {amount + 30 + 100}</span>
+                                              <span> Rs. -  {cartamount + 30 + 100}</span>
                                             </div>
 
                                           <div className = "proceed-button" style = {{textAlign:'center',paddingTop:'3%'}}>
