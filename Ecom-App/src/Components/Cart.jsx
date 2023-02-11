@@ -16,7 +16,8 @@ const Cart = () => {
 
      const {  id :alias , name , company , price ,description ,category ,stock ,reviews ,stars ,image } = singleprod;
 
-     const { cart } = useCartContext();
+     let  { cart } = useCartContext();
+     const {amount } = cart;
 
      console.log('cart items are -',cart);
 
@@ -26,14 +27,55 @@ const Cart = () => {
             <div className="cart-container" style = {{paddingTop:'4%'}}>
             { userisloggedin ? (
             <>  
+                   <div className = "items-scroll" style = {{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+                            <div className = "cart-items">
+                                  {cart.map((curelem) =>  
+                                  {
+                                      return  <CartItem  key = {curelem.id} {...curelem}  />
+                                  })}    
+                            </div>
+                            <div className="cart-price">
+                            {
+                              cart.length > 0  ? (
+                                <>
+                                    <div className = "cart-data">
+                                  <div className = "secondside-cart" style = {{padding:'3%',backgroundColor:'burlywood',width:'60%'}}>
+                                            <div className="price-text" style = {{textAlign:'center'}}> 
+                                                <span style = {{fontSize:'25px'}}> Price Details  </span> 
+                                            </div>  
+                                            
+                                            <div className="price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
+                                            <span> Price({amount} items) </span>  
+                                            <span> {price} </span>  
+                                            </div>  
 
+                                            <div className="discount" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
+                                            <span>  Discount  </span>  
+                                            <span>  Rs.- 30 </span>  
+                                            </div> 
 
-                   <div className="items-scroll">
-                     {cart.map((curelem) => 
-                     {
-                        return  <CartItem  key = {curelem.id} {...curelem}  />
-                     })}    
-                   </div>
+                                            <div className="delivery-charges" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
+                                            <span> Delivery Charges  </span>  
+                                            <span> Rs. - 100 </span>  
+                                            </div> 
+
+                                            <div className="total-price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
+                                              <span> Total Price - </span>
+                                              <span> Rs. -  {amount + 30 + 100}</span>
+                                            </div>
+
+                                          <div className = "proceed-button" style = {{textAlign:'center',paddingTop:'3%'}}>
+                                            <button style = {{padding:'3% 21%'}}> Proceed to Buy  </button>
+                                            </div>
+                                  </div>  
+                                    </div>
+                                </>) : 
+                              (<>
+                                
+                                </>)
+                            }
+                            </div>
+                     </div>
             </>) : 
             (<>
                  <h2>  User is not Logged In </h2>
