@@ -26,16 +26,63 @@ const CartReducer = (state,action) => {
         }
     }
 
-    if(action.type === 'SET_INCREASE'){
-        
+    if(action.type === 'SET_INCREASE')
+    { 
+        let updatedproduct = state.cart.map((curelem) => {
+
+            if(curelem.id === action.payload)
+            {let inccamount = curelem.amount + 1;
+
+              if(inccamount >= curelem.max)
+              {
+                inccamount = curelem.max;
+              }
+
+              return {
+                ...curelem,
+                amount : inccamount,
+              };
+            }else
+              {
+                 return curelem;
+              }
+          })
+          return { ...state ,cart : updatedproduct };
     }
 
-    if(action.type === 'SET_DECREASE'){
-        
-    }
+    if(action.type === 'SET_DECREASE')
+    {
+            let updatedproduct = state.cart.map((curelem) => {
+
+                if(curelem.id === action.payload)
+                {let decamount = curelem.amount - 1;
+
+                if(decamount <= 1)
+                {
+                    decamount = 1;
+                }
+
+                return {
+                    ...curelem,
+                    amount : decamount,
+                };
+                }else
+                {
+                    return curelem;
+                }
+            })
+            return { ...state ,cart : updatedproduct };
+        }
 
     if(action.type === 'REMOVE_FROM_CART'){
-        
+        if(action.type === "REMOVE_FROM_CART")
+        {
+          let updatedcart = state.cart.filter((curitem) => curitem.id !== action.payload )
+          return {
+            ...state ,
+            cart: updatedcart,
+          }
+        }
     }
     
     return state;

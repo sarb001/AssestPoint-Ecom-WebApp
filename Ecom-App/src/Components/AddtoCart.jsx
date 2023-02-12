@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import CartAmountToggle from './CartAmountToggle';
+import CartItem from './CartItem';
 import { useCartContext } from './ContextApi/CartContext';
 import { useProductContext } from './ContextApi/ProductContext';
 import isProductInCart from './isProductInCart';
 
 const AddtoCart = ({product}) => {
-
 
     console.log(' Product fetched is -',product);
     const { addtocart  } = useCartContext();
@@ -27,9 +28,25 @@ const AddtoCart = ({product}) => {
     let currentitemincart = isProductInCart(singleprod.id , cart)
     console.log(' current cart is- ',currentitemincart);
 
+    const setDecrease = () => {
+      amount > 1 ? setamount(amount - 1) : setamount(1);
+   };
+ 
+   const setIncrease = () => {
+      amount < stock ? setamount(amount + 1) : setamount(stock);
+   };
 
   return (
     <div> 
+
+          <div className = "cart-amount">
+             <CartAmountToggle 
+               amount = {amount}
+               setIncrease = {setIncrease}
+               setDecrease = {setDecrease}  
+              />        
+          </div>
+
       {currentitemincart ? (
       <>
           <NavLink to = "/cart"> 

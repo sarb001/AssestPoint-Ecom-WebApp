@@ -10,7 +10,6 @@ import AddtoCart from './AddtoCart';
 const API = 'https://api.pujakaitem.com/api/products';
 
 const SingleProduct = () => {
-
   const {  getsingleproduct , singleprod  } = useProductContext();
    
   const {id} = useParams();
@@ -46,7 +45,9 @@ const SingleProduct = () => {
                         <div className = "singleprod-cat">       <span id = "text-style"> Category is  -  </span>    {category}</div>
                         <div className = "singleprod-stock">    <span id = "text-style" > Stock is  -  </span>   {stock} </div>
                         <div className = "singleprod-reviews">  <span id = "text-style" > Reviews is  -  </span>  {reviews}</div>
+                     
                      </div>
+
                      <div className = "buttons" style= {{display:'grid',gridTemplateColumns:'1fr 1fr'}}> 
                      
                        {stock > 0 &&  <AddtoCart  product = {singleprod} />  }

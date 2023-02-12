@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 import { useCartContext } from './ContextApi/CartContext';
 import { useProductContext } from './ContextApi/ProductContext';
@@ -20,7 +20,13 @@ const Cart = () => {
      // const { amount } = cart;
 
     console.log(' cart is ',cart);
-    const cartamount = cart &&  cart[0].amount;
+
+      if(cart.length > 0)
+      {
+        const cartamount = cart &&  cart[0].amount;
+      }
+     
+
     // console.log('cart Amount  -',cart[0].amount);
 
       // console.log(' SingleProd id is  ',singleprod.id);
@@ -34,14 +40,27 @@ const Cart = () => {
             <div className="cart-container" style = {{padding:'4%'}}>
             { userisloggedin ? (
             <>  
-
+                  {cart.length > 0 ? (
+                  <> 
                     <div className = "cart-headers" style = {{display:'grid',gridTemplateColumns:'1fr 1fr 1fr 1fr 1fr',fontSize:'21px'}}>
-                      <div>  Item       </div>
-                      <div>  Price      </div>
-                      <div>  Quantity   </div>
-                      <div>  Subtotal   </div>
-                      <div>  Remove     </div>
+                          <div>  Item       </div>
+                          <div>  Price      </div>
+                          <div>  Quantity   </div>
+                          <div>  Subtotal   </div>
+                          <div>  Remove     </div>
                     </div>
+                  </>) : 
+                   (<> 
+                      <div style = {{textAlign:'center',display:'grid',gridTemplateRows:'1fr 1fr'}}>
+                         <span style = {{fontSize:'35px'}}>  Cart is Empty  </span> 
+                         <span style = {{paddingTop:'3%'}}>  
+                                    <Link to = "/">
+                                        <button style = {{padding:'1%',fontSize:'23px'}}> Let's do Shopping  </button>
+                                    </Link>
+                         </span> 
+                      </div>
+                  </>)}
+                    
 
                             <div className = "cart-items">
                                   {cart.map((curelem) =>  
@@ -49,49 +68,21 @@ const Cart = () => {
                                       return  <CartItem  key = {curelem.id} {...curelem}  />
                                   })}    
                             </div>
-                            <div className="cart-price">
-                            {
-                              cart.length > 0  ? (
-                                <>
+                            
+                            {/* <div className = "cart-price">
+                              {cart.length === 0  ? (
+                              <>
+                                    <span>  Cart is Empty  </span>
+                                    <Link to = "/">
+                                        <button> Let's do Shopping  </button>
+                                    </Link>
+                              </>) : 
+                              (
+                              <>
+                                   Length hai 
 
-                                    {/* <div className = "cart-data">
-                                      <div className = "secondside-cart" style = {{padding:'3%',backgroundColor:'burlywood',width:'60%'}}>
-                                                <div className="price-text" style = {{textAlign:'center'}}> 
-                                                    <span style = {{fontSize:'25px'}}> Price Details  </span> 
-                                                </div>  
-                                                
-                                                <div className="price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
-                                                <span> Price( {cartamount} items)   </span>  
-                                                <span> {price} </span>  
-                                                </div>  
-
-                                                <div className="discount" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
-                                                <span>  Discount  </span>  
-                                                <span>  Rs.- 30 </span>  
-                                                </div> 
-
-                                                <div className="delivery-charges" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
-                                                <span> Delivery Charges  </span>  
-                                                <span> Rs. - 100 </span>  
-                                                </div> 
-
-                                                <div className="total-price" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',fontSize:'23px',columnGap:'25px'}}>
-                                                  <span> Total Price - </span>
-                                                  <span> Rs. -  {cartamount + 30 + 100}</span>
-                                                </div>
-
-                                              <div className = "proceed-button" style = {{textAlign:'center',paddingTop:'3%'}}>
-                                                <button style = {{padding:'3% 21%'}}> Proceed to Buy  </button>
-                                                </div>
-                                      </div>  
-                                    </div> */}
-
-                                </>) : 
-                              (<>
-                                
-                                </>)
-                            }
-                            </div>
+                              </>)}
+                            </div> */}
                    
             </>) : 
             (<>

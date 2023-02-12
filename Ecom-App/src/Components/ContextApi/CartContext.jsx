@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
 import reducer from '../Reducer/CartReducer';
-
-
 const CartContext = createContext();
 
 const CartProvider = ({children}) => {
@@ -20,16 +18,16 @@ const CartProvider = ({children}) => {
          dispatch({type:'ADD_TO_CART',payload : {id, amount ,stock ,image ,name ,price }});
     } ;
 
-    const setIncrease = () => {
-         dispatch({type:'SET_INCREASE'});
+    const setIncrease = (id) => {
+         dispatch({type:'SET_INCREASE',payload : id});
     }
 
-    const setDecrease = () => {
-        dispatch({type:'SET_DECREASE'});
+    const setDecrease = (id) => {
+        dispatch({type:'SET_DECREASE',payload : id});
     }
 
-    const removefromcart = () => {
-        dispatch({type:'REMOVE_FROM_CART'});
+    const removefromcart = (id) => {
+        dispatch({type:'REMOVE_FROM_CART',payload : id});
     }
 
     return(
