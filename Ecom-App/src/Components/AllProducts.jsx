@@ -3,18 +3,13 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useProductContext } from './ContextApi/ProductContext';
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Button } from '@mui/material';
-
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import AddtoCart from './AddtoCart';
 import '../Styles/AddtoCart.css';
 
 
-const AllProducts = () => {
+const AllProducts = ({products}) => {
 
-   const { products  } = useProductContext();
-   console.log('All Products are -' , products);
+  //  const { products  } = useProductContext();
+   console.log(' new Prods are are ' , products);
 
   return (
     <div> 
