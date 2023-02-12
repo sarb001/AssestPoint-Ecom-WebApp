@@ -30,6 +30,13 @@ const CartProvider = ({children}) => {
         dispatch({type:'REMOVE_FROM_CART',payload : id});
     }
 
+    useEffect(() => 
+    {
+        dispatch({ type: "CART_SUBTOTAL" });                // For Subtotal Amount for Paying 
+        dispatch({ type: "CART_TOTAL_ITEM" });  
+    },[state.cart])
+
+
     return(
         <CartContext.Provider  value = {{...state , addtocart ,setIncrease ,setDecrease  ,removefromcart }} >
              {children}

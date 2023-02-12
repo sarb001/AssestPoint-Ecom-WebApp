@@ -9,7 +9,6 @@ import Products from './Components/Products';
 import Signup from './Components/Signup';
 import SingleProduct from './Components/SingleProduct';
 import UserAccess from './Components/UserAccess';
-import WishList from './Components/WishList';
 
 const MenuRoutes = () => {
   return (
@@ -25,7 +24,6 @@ const MenuRoutes = () => {
             <Route path = "/singleproduct/:id" element = {<SingleProduct  /> }>   </Route>
 
             <Route path = "/cart" element = {<Cart /> }>   </Route>
-            <Route path = "/wishlist" element = {<WishList /> }>   </Route>
             <Route path = "*" element = {<PagenotFound  /> }>   </Route>
         </Routes>
     </BrowserRouter>      

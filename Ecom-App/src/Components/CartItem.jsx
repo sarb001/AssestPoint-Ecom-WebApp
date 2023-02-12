@@ -6,8 +6,7 @@ import { useCartContext } from './ContextApi/CartContext';
 const CartItem = ({id,name,image,price,amount}) => {
 
   // amount = quantity 
-
-      const { setIncrease ,setDecrease ,removefromcart } = useCartContext();
+      const { setIncrease ,setDecrease ,removefromcart ,total_price  ,shipping_fee } = useCartContext();
 
     let data = {id,name,image,price,amount};
     console.log('data is -',data);
@@ -47,6 +46,12 @@ const CartItem = ({id,name,image,price,amount}) => {
                                   </div>
                           </div>
                   
+                          <div className = "totalitems-cart" style = {{paddingTop:'3%',textAlign:'end' ,display:'grid'}}>
+                             <span>  SubTotal Rs. -- {total_price} </span>
+                             <span>  Shipping Fees  - {shipping_fee}  </span>
+                            <span>  Total Price - {total_price + shipping_fee} </span>
+                          </div>
+
           </> 
   )
 }

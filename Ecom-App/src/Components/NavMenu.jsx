@@ -35,11 +35,6 @@ const NavMenu = () => {
                   <span>  <AccountCircleIcon  sx = {{ color : 'purple' }} />  </span>
                    </Link> 
                   </div>
-                <div className="header-wishlist"> 
-                  <Link to = "/wishlist" className='header-link'> 
-                    <span>  <FavoriteBorderIcon   sx = {{ color : 'blue' }} />  </span> 
-                  </Link> 
-                 </div>
 
                 <div className="header-cart">
                  <Link to = "/cart" className='header-link'> 

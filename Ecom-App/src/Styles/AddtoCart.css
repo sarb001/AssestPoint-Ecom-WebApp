@@ -1,0 +1,8 @@
+.item-name{
+    font-size: 19px;
+    font-weight: 100;
+}
+.item-name:hover
+{
+    color: orange;
+}

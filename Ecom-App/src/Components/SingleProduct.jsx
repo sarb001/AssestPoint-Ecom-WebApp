@@ -52,9 +52,6 @@ const SingleProduct = () => {
                      
                        {stock > 0 &&  <AddtoCart  product = {singleprod} />  }
 
-                     <span>
-                         <button>  Add to Wishlist  </button>
-                     </span>
                      </div>
                 </div> 
            </div>   
