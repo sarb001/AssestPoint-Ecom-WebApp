@@ -7,6 +7,8 @@ const FilterReducer = (state,action) => {
                             ...state,
                        filter_products : [...action.payload],
                        all_products : [...action.payload],
+                       filters : {...state.filters}
+                       
                }      
                
                 case 'GET_SORT_VALUE':
@@ -58,6 +60,53 @@ const FilterReducer = (state,action) => {
                         filter_products:newSortData,
                     }      
 
+                    case 'UPDATE_FILTER_VALUE':
+                    const { name ,value } = action.payload;
+
+                     return {
+                        ...state,
+                        filters : {
+                            ...state.filters,
+                            [name] : value
+                        }
+                     }
+
+
+                    case  'FILTER_PRODUCTS':
+                     let { all_products } =  state;
+                     let  tempFilterProduct = [...all_products];
+
+                    const { text ,category } = state.filters;
+                    
+                    if(text){
+                        tempFilterProduct = tempFilterProduct.filter((curelem) => 
+                        {
+                                return curelem.name.toLowerCase().includes(text);
+                        });  
+                    }
+
+                    if(category){
+                        tempFilterProduct = tempFilterProduct.filter((curelem) => 
+                        curelem.category === category
+                        )
+                    }
+
+                    console.log(' category ids ',tempFilterProduct);
+
+                    return {
+                        ...state,
+                        filter_products: tempFilterProduct,
+                    }
+
+
+                    case 'CLEAR_FILTERS' :
+                        return {
+                            ...state,
+                            filters : {
+                                text : "",
+                                category : "All",
+                            }                          // Reset All states to Back 
+                        }
     }
 }
 export default FilterReducer
