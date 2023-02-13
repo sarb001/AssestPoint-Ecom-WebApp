@@ -3,8 +3,8 @@ import { useFilterContext } from './ContextApi/FilterContext';
 
 const AllFilters = () => {
 
-   const {  filters : { text } ,  filter_products , sorting ,updateFilterValue  } = useFilterContext();
-   console.log(' filter_prod is ',filter_products);
+   const {  filter_products ,sorting } = useFilterContext();
+
 
   return (
     <div>
@@ -31,12 +31,12 @@ const AllFilters = () => {
 
                <span> Search by Typing -  </span>
               <div className = "filter-search">
-                  <form onSubmit = {(e) => e.preventDefault()} >
+                  {/* <form onSubmit = {(e) => e.preventDefault()} >
                       <input type = "text"  
                        name = "text"        
                        value = {text}           
                        onChange = {updateFilterValue} />  
-                  </form>
+                  </form> */}
               </div>
           </div>
     </div>

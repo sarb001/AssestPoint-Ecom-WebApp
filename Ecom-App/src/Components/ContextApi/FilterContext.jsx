@@ -8,9 +8,6 @@ const initialState = {
     filter_products : [],
     all_products:[],
     sorting_value : "lowest",
-    filters : {
-        text : "",
-    }
 }
 
 export const FilterProvider = ({children}) => 
@@ -19,21 +16,14 @@ export const FilterProvider = ({children}) =>
     
     // console.log(' Products are  ',products);
     const [state,dispatch] = useReducer(reducer,initialState) 
-
+    
     const sorting = () => {
-        dispatch({type : "GET_SORT_VALUE"});
+         dispatch({type:'GET_SORT_VALUE'});
     }
 
-    const updateFilterValue = (event) => 
+    useEffect(() => 
     {
-        let name = event.target.name;
-        let value = event.target.value;
-
-        return dispatch({type:'UPDATE_FILTER_VALUE',payload : {name,value} });
-    }
-
-    useEffect(()  => {
-         dispatch({type : "SORTING_PRODUCTS" , payload : products });
+         dispatch({type:'SORTING_PRODUCTS' ,payload : products });
     },[state.sorting_value]);
 
     useEffect(() => {
@@ -41,7 +31,7 @@ export const FilterProvider = ({children}) =>
     },[products])
 
     return(
-        <FilterContext.Provider value = {{...state ,sorting ,updateFilterValue }}>
+        <FilterContext.Provider value = {{...state ,sorting }}>
             {children}
         </FilterContext.Provider>
     )
