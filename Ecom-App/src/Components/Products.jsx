@@ -7,7 +7,7 @@ import NavMenu from './NavMenu'
 const Products = () => {
 
    const {  filter_products } = useFilterContext();
-   console.log(' Filterrrrrrr ',filter_products);
+   // console.log(' Filterrrrrrr ',filter_products);
 
   return (
     <div> 

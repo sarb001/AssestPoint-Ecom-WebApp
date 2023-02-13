@@ -9,7 +9,7 @@ const CartItem = ({id,name,image,price,amount}) => {
       const { setIncrease ,setDecrease ,removefromcart ,total_price  ,shipping_fee } = useCartContext();
 
     let data = {id,name,image,price,amount};
-    console.log('data is -',data);
+    // console.log('data is -',data);
 
   return (
        <> 

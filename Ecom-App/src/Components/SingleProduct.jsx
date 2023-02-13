@@ -15,7 +15,7 @@ const SingleProduct = () => {
   const {id} = useParams();
   const { id : alias , name , company , price ,description ,category ,stock ,reviews ,stars ,image } = singleprod;
 
-   console.log('Single Prod iss--',singleprod);
+  //  console.log('Single Prod iss--',singleprod);
 
   useEffect(() => {
       getsingleproduct(`${API}?id=${id}`);  

@@ -21,17 +21,24 @@ export const FilterProvider = ({children}) =>
         dispatch({type : "GET_SORT_VALUE"});
     }
 
-    useEffect(()  => 
-    {
+    const updateFilterValue = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+
+        return dispatch({type:'UPDATE_FILTER_VALUE',payload : {name,value} });
+    }
+
+
+    useEffect(()  => {
          dispatch({type : "SORTING_PRODUCTS" , payload : products });
     },[state.sorting_value]);
 
     useEffect(() => {
-         dispatch({type:'LOAD_FILTER_PRODUCTS',payload : products });
+         dispatch({type:'LOAD_FILTER_PRODUCTS', payload : products });
     },[products])
 
     return(
-        <FilterContext.Provider value = {{...state ,sorting}}>
+        <FilterContext.Provider value = {{...state ,sorting ,updateFilterValue }}>
             {children}
         </FilterContext.Provider>
     )

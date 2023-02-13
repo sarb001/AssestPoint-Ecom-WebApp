@@ -12,14 +12,14 @@ const Cart = () => {
   const  userisloggedin = JSON.parse(localStorage.getItem('userinfo'))
 
    const {  singleprod } = useProductContext();
-   console.log(' Cart Prod is-----  ' ,singleprod);
+  //  console.log(' Cart Prod is-----  ' ,singleprod);
 
      const {  id :alias , name , company , price ,description ,category ,stock ,reviews ,stars ,image } = singleprod;
 
      let  { cart } = useCartContext();
      // const { amount } = cart;
 
-    console.log(' cart is ',cart);
+    // console.log(' cart is ',cart);
 
       if(cart.length > 0)
       {

@@ -9,7 +9,7 @@ import '../Styles/AddtoCart.css';
 const AllProducts = ({products}) => {
 
   //  const { products  } = useProductContext();
-   console.log(' new Prods are are ' , products);
+  //  console.log(' new Prods are are ' , products);
 
   return (
     <div> 
