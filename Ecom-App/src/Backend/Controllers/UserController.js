@@ -66,14 +66,14 @@ const userLogin = async(req,res) => {
     }
 
     const user = await User.findOne({email});
-    console.log('  user is -',user);
+    // console.log('  user is -',user);
     const comparepass = await bcrypt.compare(password,user.password);
     // console.log(' comparepass is -',comparepass);
     // const datapass = comparepass.then(res =>  {
     //     console.log('response is-' ,res);
     // })  
 
-    console.log('comomm',comparepass);
+    // console.log('comomm',comparepass);
 
     if(!comparepass){
          res.status(400).json({error : 'Wrong user Credentials '});

@@ -5,16 +5,17 @@ const FilterReducer = (state,action) => {
                                     case 'LOAD_FILTER_PRODUCTS':
                                     return {
                                         ...state,
-                                        filter_products : [...action.payload],
-                                        all_products : [...action.payload],
-                                        filters : {...state.filters}
+                                            filter_products : [...action.payload],
+                                            all_products : [...action.payload],
+                                            filters : {...state.filters}
                                     }
 
                                         case "GET_SORT_VALUE"  :
                                         let usersortvalue = document.getElementById("sort");
                                         let sort_value = usersortvalue.options[usersortvalue.selectedIndex].value;
 
-                                        console.log('sort value isssss',sort_value);
+                                        // console.log('sort value isssss',sort_value);
+
                                         return {
                                             ...state ,
                                             sorting_value : sort_value,              
@@ -23,9 +24,10 @@ const FilterReducer = (state,action) => {
 
                                         case 'SORTING_PRODUCTS':
                                         let newsortdata;
-                                        const { filter_products } = state;
+                                        let tempsortproduct = [...action.payload];
+                                        // const { filter_products ,sorting_value } = state;
 
-                                            let tempsortproduct = [...filter_products];
+                                            // let tempsortproduct = [...filter_products];
                                             if(state.sorting_value === "a-z")
                                             {
                                                 newsortdata = tempsortproduct.sort((a,b) => 
@@ -59,7 +61,8 @@ const FilterReducer = (state,action) => {
                                             return {
                                                 ...state,
                                                 filter_products :newsortdata,
-                                            }             
+                                            }      
+                                    
     }
 }
 export default FilterReducer

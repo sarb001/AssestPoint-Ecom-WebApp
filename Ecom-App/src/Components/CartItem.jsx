@@ -10,6 +10,7 @@ const CartItem = ({id,name,image,price,amount}) => {
 
     let data = {id,name,image,price,amount};
     // console.log('data is -',data);
+    
 
   return (
        <> 

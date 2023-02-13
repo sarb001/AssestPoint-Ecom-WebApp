@@ -1,10 +1,9 @@
 import React from 'react';
 import { useFilterContext } from './ContextApi/FilterContext';
 
-
 const AllFilters = () => {
 
-   const {  filter_products , sorting  } = useFilterContext();
+   const {  filters : { text } ,  filter_products , sorting ,updateFilterValue  } = useFilterContext();
    console.log(' filter_prod is ',filter_products);
 
   return (
@@ -30,6 +29,15 @@ const AllFilters = () => {
                   </form>
             </div>
 
+               <span> Search by Typing -  </span>
+              <div className = "filter-search">
+                  <form onSubmit = {(e) => e.preventDefault()} >
+                      <input type = "text"  
+                       name = "text"        
+                       value = {text}           
+                       onChange = {updateFilterValue} />  
+                  </form>
+              </div>
           </div>
     </div>
   )

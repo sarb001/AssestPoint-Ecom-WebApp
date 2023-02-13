@@ -8,25 +8,26 @@ import isProductInCart from './isProductInCart';
 
 const AddtoCart = ({product}) => {
 
-    console.log(' Product fetched is -',product);
+    // console.log(' Product fetched is -',product);
     const { addtocart  } = useCartContext();
     const { stock ,id ,image , name ,price } = product;
-    console.log(' 2 Prod is - ',product);
+    // console.log(' 2 Prod is - ',product);
 
     const [amount,setamount] = useState(1);
-    console.log(' Id for Selected Product (Add to cart)  -',id);
+    // console.log(' Id for Selected Product (Add to cart)  -',id);
 
     let  { cart } = useCartContext();
     
     const { singleprod } = useProductContext();
-    console.log(' Single Prod is - ',singleprod);
+
+    // console.log(' Single Prod is - ',singleprod);
     
-    console.log(' Id of selected cart is - ',cart)
-    console.log(' SingleProd id is Add  ',singleprod.id);
+    // console.log(' Id of selected cart is - ',cart)
+    // console.log(' SingleProd id is Add  ',singleprod.id);
     // console.log(' cart  id is  Add ',cart[0].id)
 
     let currentitemincart = isProductInCart(singleprod.id , cart)
-    console.log(' current cart is- ',currentitemincart);
+    // console.log(' current cart is- ',currentitemincart);
 
     const setDecrease = () => {
       amount > 1 ? setamount(amount - 1) : setamount(1);
