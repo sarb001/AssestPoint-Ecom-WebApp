@@ -8,16 +8,13 @@ import '../Styles/AddtoCart.css';
 
 const AllProducts = ({products}) => {
 
-  //  const { products  } = useProductContext();
-  //  console.log(' new Prods are are ' , products);
-
   return (
     <div> 
-          <div className = "all-prod-text" style  = {{fontSize:'34px'}}>  AllProducts here  </div> 
+          <div className = "all-prod-text" style  = {{fontSize:'34px'}}>  AllProducts hereeeee  </div> 
           <div className = "allprod-outercontainer" style = {{display:'grid',gridTemplateColumns:'1fr 1fr',margin:'5%',columnGap:'40px',textAlign:'center'}}>
              {products.map((item) => (
                   <>
-                      <div className="allprod-container" style = {{margin:'6%',backgroundColor:'white'}}>
+                      <div className = "allprod-container" style = {{margin:'6%',backgroundColor:'white'}}>
                   
                               <NavLink to = {`/singleproduct/${item.id}`}>
                                           <div className="item-image" style = {{display:'flex',justifyContent:'space-around'}}>

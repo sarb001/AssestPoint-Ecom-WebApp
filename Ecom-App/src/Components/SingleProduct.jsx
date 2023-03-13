@@ -21,15 +21,7 @@ const SingleProduct = () => {
       getsingleproduct(`${API}?id=${id}`);  
   },[])
 
-  // if(isSingleLoading){
-  //   return(
-  //     <>
-  //      <h2> Single Loading....  </h2>
-  //     </>
-  //   )
-  // }
-
-
+  
   return (
     <div> 
             <div className = "singleprod-outercontainer" style = {{padding:'4%'}}>

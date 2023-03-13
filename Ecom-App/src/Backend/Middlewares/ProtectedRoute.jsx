@@ -32,4 +32,4 @@ const protectedroute = async(req,res,next) => {
     }
 }
 
-module.exports = {  protectedroute };
+module.exports = {  route };

@@ -68,21 +68,7 @@ const Cart = () => {
                                       return  <CartItem  key = {curelem.id} {...curelem}  />
                                   })}    
                             </div>
-                            
-                            {/* <div className = "cart-price">
-                              {cart.length === 0  ? (
-                              <>
-                                    <span>  Cart is Empty  </span>
-                                    <Link to = "/">
-                                        <button> Let's do Shopping  </button>
-                                    </Link>
-                              </>) : 
-                              (
-                              <>
-                                   Length hai 
-
-                              </>)}
-                            </div> */}
+                           
                    
             </>) : 
             (<>

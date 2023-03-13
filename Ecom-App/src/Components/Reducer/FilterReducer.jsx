@@ -2,16 +2,16 @@ const FilterReducer = (state,action) => {
 
     switch(action.type)
     {
-                case 'LOAD_FILTER_PRODUCTS':
+                   case 'LOAD_FILTER_PRODUCTS':
                       return {
                             ...state,
                        filter_products : [...action.payload],
                        all_products : [...action.payload],
                        filters : {...state.filters}
                        
-               }      
+                   }      
                
-                case 'GET_SORT_VALUE':
+                   case 'GET_SORT_VALUE':
                     let userSortValue = document.getElementById('sort');
                     let sort_value = userSortValue.options[userSortValue.selectedIndex].value;
 
@@ -21,7 +21,7 @@ const FilterReducer = (state,action) => {
                         sorting_value : sort_value,
                     }     
                     
-                 case 'SORTING_PRODUCTS' :
+                   case 'SORTING_PRODUCTS' :
                     let newSortData;
                     let tempSortProduct = [...action.payload];
                     
@@ -91,20 +91,20 @@ const FilterReducer = (state,action) => {
                         )
                     }
 
-                    console.log(' category ids ',tempFilterProduct);
+                    console.log(' category iss ---  ',tempFilterProduct);
 
                     return {
                         ...state,
                         filter_products: tempFilterProduct,
                     }
 
-
+                    
                     case 'CLEAR_FILTERS' :
                         return {
                             ...state,
                             filters : {
                                 text : "",
-                                category : "All",
+                                category : "all",
                             }                          // Reset All states to Back 
                         }
     }

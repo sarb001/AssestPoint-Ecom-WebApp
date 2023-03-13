@@ -10,15 +10,13 @@ const initialState = {
     sorting_value : "lowest",
     filters : {
         text : "",
-        category : "All",
+        category : "all",
     }
 }
 
 export const FilterProvider = ({children}) => 
 {
     const { products } = useProductContext();
-    
-    // console.log(' Products are  ',products);
     const [state,dispatch] = useReducer(reducer,initialState) 
     
     const sorting = () => {
@@ -26,7 +24,7 @@ export const FilterProvider = ({children}) =>
     }
 
     const updateFilterValue = (event) =>  {
-        let name = event.target.name;
+        let name  = event.target.name;
         let value = event.target.value;
 
         return dispatch({type:'UPDATE_FILTER_VALUE',payload : {name,value}})
